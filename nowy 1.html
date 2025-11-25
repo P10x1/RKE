@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RKE — Rejska Komisja Egzaminacyjna</title>
+<style>
+    :root{--accent:#0a3750;--muted:#6b7885;--card:#ffffff;--bg:#f5f7f9}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#123}
+    header{background:white;border-bottom:1px solid #e6ebf0;padding:18px 24px;display:flex;align-items:center;gap:18px}
+    .logo{height:72px;width:auto}
+    .brand{font-weight:700;color:var(--accent);font-size:28px}
+    .subtitle{color:var(--muted);font-size:14px}
+    .container{max-width:1100px;margin:28px auto;padding:0 20px}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+    .search{flex:1;min-width:200px}
+    input,select,button{padding:10px 12px;border-radius:8px;border:1px solid #d7e0e8;font-size:14px}
+    button{background:var(--accent);color:white;border:none;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.grid{grid-template-columns:1fr}.logo{height:56px}}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.06);min-height:160px}
+    .card h3{margin:0 0 8px 0}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+    .exam-list{list-style:none;padding:0;margin:0}
+    .exam-list li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px dashed #eef3f6}
+    .exam-list li:first-child{border-top:none}
+    .chip{font-size:13px;padding:6px 8px;border-radius:999px;background:#eef6fb;color:var(--accent)}
+    .actions a{margin-left:8px;text-decoration:none}
+    footer{max-width:1100px;margin:36px auto 60px;padding:0 20px;color:var(--muted);font-size:14px}
+    .small{font-size:13px;color:#6b7785}
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="RKELOGO.png" alt="RKE logo" />
+    <div>
+      <div class="brand">RKE — Rejska Komisja Egzaminacyjna</div>
+      <div class="subtitle">Egzaminy próbne i arkusze dla szkół podstawowych — klasy 6 • 7 • 8</div>
+    </div>
+  </header>
+
+  <section class="container" id="info">
+    <h2 style="color:#0a3750;margin-top:24px">Informacje o egzaminach</h2>
+    <p>Egzaminy RKE dla szkół podstawowych mają przypisane kolory, aby łatwo rozróżnić poziomy:</p>
+    <ul style="line-height:1.6;font-size:15px">
+      <li><strong style="color:#74b583">Klasa 6 — jasna zieleń leśna</strong> (e6) — pierwszy poziom, jako jedyny był tutaj egzamin próbny</li>
+      <li><strong style="color:#6e8a75">Klasa 7 — zieleń oliwkowo-leśna</strong> (e7) — dopasowany do klasy siódmej, jako jedyny posiadał kartę i klucz odpowiedzi</li>
+      <li><strong style="color:#34523c">Klasa 8 — ciemna zieleń sosnowa</strong> (e8) — ostatni poziom, jako jedyny zawierał tabele punktacyjne</li>
+    </ul>
+
+    <h3 style="margin-top:28px;color:#0a3750">Nadchodzące egzaminy</h3>
+    <div style="background:white;padding:16px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.06);max-width:700px">
+      <ul style="margin:0;padding-left:18px;line-height:1.6">
+        <li><strong>Egzamin szóstoklasisty</strong> — Styczeń 2026</li>
+        <li><strong>Egzamin siódmoklasisty</strong> — Styczeń 2026</li>
+        <li><strong>Egzamin ósmoklasisty</strong> — Styczeń 2026</li>
+      </ul>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="controls">
+      <input id="search" class="search" placeholder="Szukaj przedmiotu (np. matematyka, j. polski)" />
+      <select id="grade">
+        <option value="all">Wszystkie klasy</option>
+        <option value="6">Klasa 6 SP</option>
+        <option value="7">Klasa 7 SP</option>
+        <option value="8">Klasa 8 SP</option>
+      </select>
+      <button id="filterBtn">Filtruj</button>
+      <button id="printBtn">Drukuj widok</button>
+    </div>
+
+    <section aria-label="Lista egzaminów">
+      <div class="grid" id="cards">
+
+        <!-- karta: klasa 6 -->
+        <article class="card" data-grade="6">
+          <h3>Klasa 6 — Arkusze i próbne egzaminy</h3>
+          <div class="meta">Poziom: <span class="chip">SP 6</span></div>
+          <ul class="exam-list">
+            <li>
+              <div>
+                <strong>Język piotrowski - Maj 2025</strong>
+                <div class="small">oryginalny • poziom podstawowy</div>
+				</div>
+                            <div class="actions">
+                <a href="https://ne0z27.webwave.dev/lib/ne0z27/egzamin-szostkoklasisty-mawu8314.pdf" download>Pobierz</a>
+            </li>
+			<li>
+              <div>
+                <strong>Język piotrowski - Lipiec 2025</strong>
+                <div class="small">oryginalny • poziom podstawowy</div>
+				</div>
+              <div class="actions">
+                <a href="https://ne0z27.webwave.dev/lib/ne0z27/Egzamin-szostoklasisty-2025-7-2-mgxkmc6v.pdf" download>Pobierz</a>
+            </li>
+			<li>
+              <div>
+                <strong>Język piotrowski - Wrzesień 2025</strong>
+                <div class="small">próbny • poziom podstawowy</div>
+				</div>
+              <div class="actions">
+                <a href="https://zwgy5t.webwave.dev/lib/zwgy5t/Egzamin-probny-z-jezyka-ptr-202509-mieu97uj.pdf" download>Pobierz</a>
+            </li>
+          </ul>
+        </article>
+
+        <!-- karta: klasa 7 -->
+        <article class="card" data-grade="7">
+          <h3>Klasa 7 — Arkusze i próbne egzaminy</h3>
+          <div class="meta">Poziom: <span class="chip">SP 7</span></div>
+          <ul class="exam-list">
+            <li>
+              <div>
+                <strong>Język piotrowski - Listopad 2025</strong>
+                <div class="small">oryginalny + Karta odpowiedzi + Klucz odpowiedzi • poziom podstawowy</div>
+              </div>
+              <div class="actions">
+                <a href="https://zwgy5t.webwave.dev/lib/zwgy5t/Egzamin-siodmoklasisty-3-miev4rx5.pdf" download>Pobierz</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Język piotrowski - Maj, Lipiec, Wrzesień 2025</strong>
+                <div class="small">oryginalny • poziom podstawowy</div>
+              </div>
+              <div class="actions">
+                <a href="https://ne0z27.webwave.dev/lib/ne0z27/Egzamin-siodmoklasisty-mawu8azv.pdf" download>Pobierz</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- karta: klasa 8 -->
+        <article class="card" data-grade="8">
+          <h3>Klasa 8 — Arkusze i próbne egzaminy</h3>
+          <div class="meta">Poziom: <span class="chip">SP 8</span></div>
+          <ul class="exam-list">
+            <li>
+              <div>
+                <strong>Język piotrowski - Maj, Lipiec, Wrzesień 2025</strong>
+                <div class="small">oryginalny • poziom podstawowy</div>
+              </div>
+              <div class="actions">
+                <a href="https://ne0z27.webwave.dev/lib/ne0z27/Egzamin-osmoklasisty-mawu8i5h.pdf" download>Pobierz</a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Język piotrowski - Listopad 2025</strong>
+                <div class="small">oryginalny • poziom podstawowy</div>
+              </div>
+              <div class="actions">
+                <a href="https://zwgy5t.webwave.dev/lib/zwgy5t/Egzamin-osmoklasisty-1-mievhy2s.pdf" download>Pobierz</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- prosty modal podglądu -->
+    <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.45);align-items:center;justify-content:center;padding:20px">
+      <div style="background:white;border-radius:12px;max-width:820px;width:100%;padding:20px;box-shadow:0 12px 40px rgba(2,6,23,0.4)">
+        <button onclick="closeModal()" style="float:right;border:none;background:#eee;padding:6px 10px;border-radius:8px">Zamknij</button>
+        <h4 id="modalTitle"></h4>
+        <p class="small">To tylko podgląd — wgraj rzeczywiste pliki PDF i podmień odnośniki "Pobierz" w HTML.</p>
+        <div id="modalBody" style="height:420px;overflow:auto;background:#fafbfc;border-radius:8px;padding:12px;border:1px solid #eef3f6">Tu wyświetli się zawartość podglądu.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    © RKE — Rejska Komisja Egzaminacyjna • Kontakt: sekretariat@rke.example
+  </footer>
+
+  <script>
+    // prosta funkcjonalność filtrowania
+    const cards = Array.from(document.querySelectorAll('.card'));
+    document.getElementById('filterBtn').addEventListener('click', applyFilter);
+    document.getElementById('search').addEventListener('keyup', e => { if(e.key === 'Enter') applyFilter(); });
+    document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+    function applyFilter(){
+      const grade = document.getElementById('grade').value;
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      cards.forEach(c => {
+        const matchesGrade = (grade === 'all') || (c.dataset.grade === grade);
+        const text = c.textContent.toLowerCase();
+        const matchesQuery = q === '' || text.includes(q);
+        c.style.display = (matchesGrade && matchesQuery) ? 'block' : 'none';
+      });
+    }
+
+    function preview(ev, title){
+      ev.preventDefault();
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').textContent = 'Przykładowy podgląd arkusza — w tym miejscu można osadzić iframe z PDF po dodaniu pliku.';
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal(){ document.getElementById('modal').style.display='none'; }
+  </script>
+</body>
+</html>
